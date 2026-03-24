@@ -6,6 +6,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const policyLink = document.querySelector('.footer-policy');
     const filterItems = document.querySelectorAll('.filter-item');
     
+    // Функция для определения мобильного устройства
+    function isMobile() {
+        return window.innerWidth <= 480;
+    }
+    
+    // Начальная анимация
+    const animDuration = isMobile() ? 0.4 : 0.8;
+    const animDelay = isMobile() ? 0 : 0.2;
     
     gsap.set('.logo', { x: -20, opacity: 0 });
     gsap.set('.burger-menu', { x: 20, opacity: 0 });
@@ -20,77 +28,78 @@ document.addEventListener('DOMContentLoaded', function() {
     gsap.to('.logo', { 
         x: 0, 
         opacity: 1, 
-        duration: 0.6, 
+        duration: animDuration, 
         ease: "power3.out", 
-        delay: 0.2 
+        delay: animDelay 
     });
     
     gsap.to('.burger-menu', { 
         x: 0, 
         opacity: 1, 
-        duration: 0.6, 
+        duration: animDuration, 
         ease: "power3.out", 
-        delay: 0.2 
+        delay: animDelay 
     });
     
     gsap.to('.hero-text', {
         y: 0,
         opacity: 1,
-        duration: 0.8,
+        duration: animDuration,
         ease: "power3.out",
-        delay: 0.5
+        delay: animDelay + 0.3
     });
     
     gsap.to('.cases-dark-section', {
         y: 0,
         opacity: 1,
-        duration: 0.8,
+        duration: animDuration,
         ease: "power3.out",
-        delay: 0.7
+        delay: animDelay + 0.5
     });
     
     gsap.to('.cases-title', {
         y: 0,
         opacity: 1,
-        duration: 0.6,
+        duration: animDuration,
         ease: "power3.out",
-        delay: 0.9
+        delay: animDelay + 0.6
     });
     
     gsap.to('.filter-item', {
         y: 0,
         opacity: 1,
-        duration: 0.6,
+        duration: animDuration,
         stagger: 0.1,
         ease: "power3.out",
-        delay: 1.0
+        delay: animDelay + 0.7
     });
     
     gsap.to('.case-item-link', {
         y: 0,
         opacity: 1,
-        duration: 0.8,
+        duration: animDuration,
         stagger: 0.05,
         ease: "power3.out",
-        delay: 1.2
+        delay: animDelay + 0.8
     });
     
     gsap.to('.media-section', {
         y: 0,
         opacity: 1,
-        duration: 0.8,
+        duration: animDuration,
         ease: "power3.out",
-        delay: 1.6
+        delay: animDelay + 1.0
     });
     
     gsap.to('.footer', {
         y: 0,
         opacity: 1,
-        duration: 0.8,
+        duration: animDuration,
         ease: "power3.out",
-        delay: 1.8
+        delay: animDelay + 1.1
     });
     
+    // Бургер-меню
     if (burgerMenu) {
         burgerMenu.addEventListener('click', function() {
             console.log('Бургер-меню нажато - переход в меню');
@@ -108,14 +117,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         burgerMenu.addEventListener('mouseenter', function() {
-            gsap.to(this, { scale: 1.1, duration: 0.2, ease: "power2.out" });
+            if (!isMobile()) {
+                gsap.to(this, { scale: 1.1, duration: 0.2, ease: "power2.out" });
+            }
         });
         
         burgerMenu.addEventListener('mouseleave', function() {
-            gsap.to(this, { scale: 1, duration: 0.2, ease: "power2.inOut" });
+            if (!isMobile()) {
+                gsap.to(this, { scale: 1, duration: 0.2, ease: "power2.inOut" });
+            }
         });
     }
     
+    // Фильтры
     filterItems.forEach(item => {
         const dropdown = item.querySelector('.filter-dropdown');
         const arrow = item.querySelector('.filter-arrow');
@@ -195,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         item.addEventListener('mouseenter', function() {
-            if (!this.classList.contains('active')) {
+            if (!isMobile() && !this.classList.contains('active')) {
                 gsap.to(arrow, {
                     rotation: 180,
                     duration: 0.3,
@@ -205,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         item.addEventListener('mouseleave', function() {
-            if (!this.classList.contains('active')) {
+            if (!isMobile() && !this.classList.contains('active')) {
                 gsap.to(arrow, {
                     rotation: 0,
                     duration: 0.3,
@@ -215,6 +229,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Футер ссылки
     footerLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -237,6 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Политика конфиденциальности
     if (policyLink) {
         policyLink.addEventListener('click', function(e) {
             e.preventDefault();
@@ -250,6 +266,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Drag-to-scroll для медиа
     if (mediaContainer) {
         let isDown = false;
         let startX;
@@ -290,46 +307,60 @@ document.addEventListener('DOMContentLoaded', function() {
         mediaContainer.style.cursor = 'grab';
     }
     
+    // Hover-эффекты для карточек кейсов
     const caseCards = document.querySelectorAll('.case-item-link');
     caseCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             const img = this.querySelector('.case-img');
-            gsap.to(img, {
-                scale: 1.08,
-                duration: 0.4,
-                ease: "power2.out"
-            });
+            if (img) {
+                gsap.to(img, {
+                    scale: 1.08,
+                    duration: 0.4,
+                    ease: "power2.out"
+                });
+            }
         });
         
         card.addEventListener('mouseleave', function() {
             const img = this.querySelector('.case-img');
-            gsap.to(img, {
-                scale: 1,
-                duration: 0.3,
-                ease: "power2.inOut"
-            });
+            if (img) {
+                gsap.to(img, {
+                    scale: 1,
+                    duration: 0.3,
+                    ease: "power2.inOut"
+                });
+            }
         });
     });
     
+    // Hover-эффекты для медиа-карточек
     const mediaCards = document.querySelectorAll('.media-item-link');
     mediaCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             const img = this.querySelector('.media-img');
-            gsap.to(img, {
-                scale: 1.08,
-                duration: 0.4,
-                ease: "power2.out"
-            });
+            if (img) {
+                gsap.to(img, {
+                    scale: 1.08,
+                    duration: 0.4,
+                    ease: "power2.out"
+                });
+            }
         });
         
         card.addEventListener('mouseleave', function() {
             const img = this.querySelector('.media-img');
-            gsap.to(img, {
-                scale: 1,
-                duration: 0.3,
-                ease: "power2.inOut"
-            });
+            if (img) {
+                gsap.to(img, {
+                    scale: 1,
+                    duration: 0.3,
+                    ease: "power2.inOut"
+                });
+            }
         });
     });
     
+    // Слушаем изменение размера окна для корректировки анимаций
+    window.addEventListener('resize', function() {
+        // Ничего не делаем, просто обеспечиваем адаптивность через CSS
+    });
 });

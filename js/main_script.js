@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const prevButton = document.querySelector('.prev-button');
     const nextButton = document.querySelector('.next-button');
-    const carouselTrack = document.querySelector('.carousel-track');
     const carouselImage = document.querySelector('.carousel-image');
     
     const images = [
@@ -16,7 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let currentImageIndex = 0;
     
+    // Функция для определения мобильного устройства
+    function isMobile() {
+        return window.innerWidth <= 480;
+    }
     
+    // Начальная анимация
     gsap.set('.logo', { x: -20, opacity: 0 });
     gsap.set('.burger-menu', { x: 20, opacity: 0 });
     gsap.set('.hero-title', { y: 30, opacity: 0 });
@@ -24,18 +28,19 @@ document.addEventListener('DOMContentLoaded', function() {
     gsap.set('.description-text', { y: 30, opacity: 0 });
     gsap.set('.projects-card', { y: 30, opacity: 0 });
     
-    gsap.to('.logo', { x: 0, opacity: 1, duration: 0.6, ease: "power3.out", delay: 0.3 });
-    gsap.to('.burger-menu', { x: 0, opacity: 1, duration: 0.6, ease: "power3.out", delay: 0.3 });
-    gsap.to('.hero-title', { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: 0.5 });
-    gsap.to('.hero-button', { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: 0.6 });
-    gsap.to('.description-text', { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: 0.7 });
-    gsap.to('.projects-card', { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: 0.8 });
+    const animDuration = isMobile() ? 0.4 : 0.8;
+    const animDelay = isMobile() ? 0 : 0.3;
     
+    gsap.to('.logo', { x: 0, opacity: 1, duration: animDuration, ease: "power3.out", delay: animDelay });
+    gsap.to('.burger-menu', { x: 0, opacity: 1, duration: animDuration, ease: "power3.out", delay: animDelay });
+    gsap.to('.hero-title', { y: 0, opacity: 1, duration: animDuration, ease: "power3.out", delay: animDelay + 0.2 });
+    gsap.to('.hero-button', { y: 0, opacity: 1, duration: animDuration, ease: "power3.out", delay: animDelay + 0.3 });
+    gsap.to('.description-text', { y: 0, opacity: 1, duration: animDuration, ease: "power3.out", delay: animDelay + 0.4 });
+    gsap.to('.projects-card', { y: 0, opacity: 1, duration: animDuration, ease: "power3.out", delay: animDelay + 0.5 });
     
+    // Функция обновления изображения в карусели
     function updateImage(index) {
         if (!carouselImage) return;
-        
-        console.log('Переключение на изображение:', index);
         
         gsap.to(carouselImage, {
             opacity: 0,
@@ -50,10 +55,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Кнопки карусели
     if (prevButton) {
         prevButton.addEventListener('click', function() {
-            console.log('Нажата кнопка "назад"');
-            
             gsap.timeline()
                 .to(this, { scale: 0.95, duration: 0.1, ease: "sine.inOut" })
                 .to(this, { scale: 1, duration: 0.2, ease: "back.out(1.2)" });
@@ -65,8 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (nextButton) {
         nextButton.addEventListener('click', function() {
-            console.log('Нажата кнопка "вперед"');
-            
             gsap.timeline()
                 .to(this, { scale: 0.95, duration: 0.1, ease: "sine.inOut" })
                 .to(this, { scale: 1, duration: 0.2, ease: "back.out(1.2)" });
@@ -76,92 +78,92 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Бургер-меню
     if (burgerMenu) {
         burgerMenu.addEventListener('click', function() {
-            console.log('Бургер-меню нажато');
-            
             gsap.timeline()
                 .to(this, { scale: 0.9, duration: 0.1, ease: "sine.inOut" })
                 .to(this, { scale: 1, duration: 0.2, ease: "back.out(1.2)" });
         });
         
         burgerMenu.addEventListener('mouseenter', function() {
-            gsap.to(this, { scale: 1.1, duration: 0.2, ease: "power2.out" });
+            if (!isMobile()) {
+                gsap.to(this, { scale: 1.1, duration: 0.2, ease: "power2.out" });
+            }
         });
         
         burgerMenu.addEventListener('mouseleave', function() {
-            gsap.to(this, { scale: 1, duration: 0.2, ease: "power2.inOut" });
+            if (!isMobile()) {
+                gsap.to(this, { scale: 1, duration: 0.2, ease: "power2.inOut" });
+            }
         });
     }
     
+    // Кнопка "Кейсы"
     if (heroButton) {
         heroButton.addEventListener('click', function() {
-            console.log('Кнопка "Кейсы" нажата');
-            
             gsap.timeline()
                 .to(this, { scale: 0.95, duration: 0.1, ease: "sine.inOut" })
                 .to(this, { scale: 1, duration: 0.3, ease: "elastic.out(1, 0.2)" });
         });
     }
     
+    // Drag-to-scroll для горизонтальных скроллов
     function initDragScroll(selector) {
         const container = document.querySelector(selector);
-        if (!container) {
-            console.log(`Контейнер ${selector} не найден`);
-            return;
-        }
-        
-        console.log(`Инициализация drag-to-scroll для ${selector}`);
+        if (!container) return;
         
         let isDown = false;
         let startX;
         let scrollLeft;
-
+        
         container.addEventListener('mousedown', (e) => {
             isDown = true;
             startX = e.pageX - container.offsetLeft;
             scrollLeft = container.scrollLeft;
             container.style.cursor = 'grabbing';
-            container.style.userSelect = 'none'; 
+            container.style.userSelect = 'none';
         });
-
+        
         container.addEventListener('mouseleave', () => {
             isDown = false;
             container.style.cursor = 'grab';
             container.style.userSelect = 'auto';
         });
-
+        
         container.addEventListener('mouseup', () => {
             isDown = false;
             container.style.cursor = 'grab';
             container.style.userSelect = 'auto';
         });
-
+        
         container.addEventListener('mousemove', (e) => {
             if (!isDown) return;
             e.preventDefault();
             const x = e.pageX - container.offsetLeft;
-            const walk = (x - startX) * 1.5; 
+            const walk = (x - startX) * 1.5;
             container.scrollLeft = scrollLeft - walk;
         });
-
+        
         container.addEventListener('dragstart', (e) => {
             e.preventDefault();
         });
         
         container.style.cursor = 'grab';
     }
-
+    
     setTimeout(() => {
         initDragScroll('.stories-container');
         initDragScroll('.media-container');
-    }, 500); 
+    }, 500);
     
-    // Кнопка "Показать ещё" - удаляем весь функционал, оставляем только для дизайна
-    // Никакого JavaScript для этой кнопки не добавляем
+    // Обработка resize для перезапуска анимаций при необходимости
+    window.addEventListener('resize', function() {
+        // Ничего не делаем, просто обеспечиваем адаптивность через CSS
+    });
 });
 
-// Модальное окно для stories (оставляем без изменений)
+// Модальное окно для stories
 const modal = document.getElementById('storiesModal');
 const modalImage = document.getElementById('currentStoryImage');
 const modalPrev = document.querySelector('.modal-prev-button');
@@ -169,7 +171,6 @@ const modalNext = document.querySelector('.modal-next-button');
 const storyLinks = document.querySelectorAll('.story-item-link');
 const modalOverlay = document.querySelector('.modal-overlay');
 const progressContainer = document.querySelector('.stories-progress-container');
-
 
 const storiesData = [
     { image: 'imgs/checker.png' },
@@ -186,9 +187,12 @@ const storiesData = [
 let currentStoryIndex = 0;
 let progressInterval = null;
 let currentProgress = 0;
-const STORY_DURATION = 10; 
-const PROGRESS_UPDATE_INTERVAL = 100; 
+const STORY_DURATION = 10;
+const PROGRESS_UPDATE_INTERVAL = 100;
 
+function isMobile() {
+    return window.innerWidth <= 480;
+}
 
 function createProgressBars() {
     if (!progressContainer) return;
@@ -245,12 +249,12 @@ function startProgressTimer() {
     currentProgress = 0;
     
     progressInterval = setInterval(() => {
-        currentProgress += (100 / (STORY_DURATION * 10)); 
+        currentProgress += (100 / (STORY_DURATION * 10));
         
         if (currentProgress >= 100) {
             currentProgress = 100;
             updateProgressBars();
-
+            
             if (currentStoryIndex < storiesData.length - 1) {
                 nextStory();
             } else {
@@ -311,9 +315,11 @@ function nextStory() {
         }
         startProgressTimer();
         
-        gsap.timeline()
-            .to(modalNext, { scale: 0.95, duration: 0.1, ease: "sine.inOut" })
-            .to(modalNext, { scale: 1, duration: 0.2, ease: "back.out(1.2)" });
+        if (modalNext) {
+            gsap.timeline()
+                .to(modalNext, { scale: 0.95, duration: 0.1, ease: "sine.inOut" })
+                .to(modalNext, { scale: 1, duration: 0.2, ease: "back.out(1.2)" });
+        }
     }
 }
 
@@ -329,9 +335,11 @@ function prevStory() {
         }
         startProgressTimer();
         
-        gsap.timeline()
-            .to(modalPrev, { scale: 0.95, duration: 0.1, ease: "sine.inOut" })
-            .to(modalPrev, { scale: 1, duration: 0.2, ease: "back.out(1.2)" });
+        if (modalPrev) {
+            gsap.timeline()
+                .to(modalPrev, { scale: 0.95, duration: 0.1, ease: "sine.inOut" })
+                .to(modalPrev, { scale: 1, duration: 0.2, ease: "back.out(1.2)" });
+        }
     }
 }
 

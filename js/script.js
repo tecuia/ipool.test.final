@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Функция для определения мобильного устройства
     function isMobile() {
-        return window.innerWidth <= 480;
+        return window.innerWidth <= 600;
     }
     
     // Функция для обработки клика по меню
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 150);
     }
     
-    // Разбиваем текст меню на буквы
+    // Разбиваем текст меню на буквы для анимации
     menuItems.forEach((item) => {
         const text = item.textContent;
         const letters = text.split('');
@@ -141,10 +141,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 50);
     }
     
+    // Обработка крестика
     if (closeButton) {
         closeButton.addEventListener('click', function() {
             console.log('Крестик нажат');
-            
             hideAllImages();
             
             gsap.timeline()
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
-
+        
         // Touch события для мобильных
         closeButton.addEventListener('touchstart', function(e) {
             if (isMobile()) {
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
-
+        
         closeButton.addEventListener('touchend', function(e) {
             if (isMobile()) {
                 gsap.to(this, {
@@ -208,6 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Обработка пунктов меню
     menuItems.forEach((item) => {
         const menuId = item.getAttribute('data-menu');
         
@@ -242,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function() {
         item.addEventListener('click', function() {
             handleMenuClick(menuId, this);
         });
-
+        
         // Touch события для мобильных
         item.addEventListener('touchstart', function(e) {
             if (isMobile()) {
@@ -253,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
-
+        
         item.addEventListener('touchend', function(e) {
             if (isMobile()) {
                 gsap.to(this, {
@@ -262,13 +263,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     ease: "power2.inOut"
                 });
                 
-                // Предотвращаем двойной срабатывание
                 e.preventDefault();
                 handleMenuClick(menuId, this);
             }
         });
     });
     
+    // Скрываем изображения при уходе с меню
     if (menuContainer) {
         menuContainer.addEventListener('mouseleave', function() {
             if (!isMobile()) {
@@ -315,15 +316,15 @@ document.addEventListener('DOMContentLoaded', function() {
         opacity: 0
     });
     
-    // Адаптивная начальная анимация
-    const animationDelay = isMobile() ? 0 : 0.2;
-    const animationDuration = isMobile() ? 0.4 : 0.8;
+    const isMobileDevice = isMobile();
+    const animationDelay = isMobileDevice ? 0 : 0.2;
+    const animationDuration = isMobileDevice ? 0.4 : 0.8;
     
     gsap.to('.menu-item', {
         x: 0,
         opacity: 1,
         duration: animationDuration,
-        stagger: isMobile() ? 0.05 : 0.1,
+        stagger: isMobileDevice ? 0.05 : 0.1,
         ease: "power3.out",
         delay: animationDelay
     });
@@ -331,7 +332,7 @@ document.addEventListener('DOMContentLoaded', function() {
     gsap.to('.logo', {
         x: 0,
         opacity: 1,
-        duration: isMobile() ? 0.4 : 0.6,
+        duration: isMobileDevice ? 0.4 : 0.6,
         ease: "power3.out",
         delay: animationDelay
     });
@@ -339,7 +340,7 @@ document.addEventListener('DOMContentLoaded', function() {
     gsap.to('.close', {
         x: 0,
         opacity: 1,
-        duration: isMobile() ? 0.4 : 0.6,
+        duration: isMobileDevice ? 0.4 : 0.6,
         ease: "power3.out",
         delay: animationDelay
     });
@@ -347,23 +348,22 @@ document.addEventListener('DOMContentLoaded', function() {
     gsap.to('.contacts', {
         y: 0,
         opacity: 1,
-        duration: isMobile() ? 0.4 : 0.6,
+        duration: isMobileDevice ? 0.4 : 0.6,
         ease: "power3.out",
-        delay: isMobile() ? 0.2 : 0.4
+        delay: isMobileDevice ? 0.2 : 0.4
     });
     
     gsap.to('.social-icons', {
         y: 0,
         opacity: 1,
-        duration: isMobile() ? 0.4 : 0.6,
+        duration: isMobileDevice ? 0.4 : 0.6,
         ease: "power3.out",
-        delay: isMobile() ? 0.2 : 0.4
+        delay: isMobileDevice ? 0.2 : 0.4
     });
-
+    
     // Слушаем изменение размера окна
     window.addEventListener('resize', function() {
         if (isMobile()) {
-            // Скрываем изображения на мобильных
             document.querySelectorAll('.menu-image').forEach(img => {
                 img.style.visibility = 'hidden';
                 img.style.opacity = 0;

@@ -1,156 +1,153 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     const burgerMenu = document.querySelector('.burger-menu');
-    const caseCards = document.querySelectorAll('.case-card');
-    const filterItems = document.querySelectorAll('.filter-item');
-    const footerLinks = document.querySelectorAll('.footer-nav-link');
-    const policyLink = document.querySelector('.footer-policy');
+    const socialIcons = document.querySelectorAll('.social-icon');
+    const similarArticlesContainer = document.getElementById('similarArticlesContainer');
+    const similarArticleLinks = document.querySelectorAll('.similar-article-item-link');
+    const footerPolicy = document.querySelector('.footer-policy');
+    const footerNavLinks = document.querySelectorAll('.footer-nav-link');
+    const carouselContainer = document.getElementById('carouselContainer');
     
+    // Функция для определения мобильного устройства
+    function isMobile() {
+        return window.innerWidth <= 480;
+    }
+    
+    // Начальная анимация
+    const animDuration = isMobile() ? 0.4 : 0.8;
+    const animDelay = isMobile() ? 0 : 0.2;
     
     gsap.set('.logo', { x: -20, opacity: 0 });
     gsap.set('.burger-menu', { x: 20, opacity: 0 });
-    gsap.set('.media-image-container', { y: 30, opacity: 0 });
-    gsap.set('.dark-section', { y: 30, opacity: 0 });
-    gsap.set('.filter-item', { y: 30, opacity: 0 });
-    gsap.set('.case-card', { y: 30, opacity: 0 });
+    gsap.set('.hero-image', { scale: 1.1, opacity: 0 });
+    gsap.set('.hero-title', { y: 30, opacity: 0 });
+    gsap.set('.hero-description', { y: 30, opacity: 0 });
+    gsap.set('.dark-section', { y: 50, opacity: 0 });
+    gsap.set('.section-title', { y: 30, opacity: 0 });
+    gsap.set('.text-paragraph', { y: 30, opacity: 0 });
+    gsap.set('.carousel-container', { y: 30, opacity: 0 });
+    gsap.set('.site-link', { y: 30, opacity: 0 });
+    gsap.set('.red-line', { scaleX: 0, opacity: 0 });
+    gsap.set('.social-section', { y: 30, opacity: 0 });
+    gsap.set('.similar-articles-section', { y: 30, opacity: 0 });
     gsap.set('.footer', { y: 30, opacity: 0 });
     
     gsap.to('.logo', { 
         x: 0, 
         opacity: 1, 
-        duration: 0.6, 
+        duration: animDuration, 
         ease: "power3.out", 
-        delay: 0.2 
+        delay: animDelay 
     });
     
     gsap.to('.burger-menu', { 
         x: 0, 
         opacity: 1, 
-        duration: 0.6, 
+        duration: animDuration, 
         ease: "power3.out", 
-        delay: 0.2 
+        delay: animDelay 
     });
     
-    gsap.to('.media-image-container', { 
-        y: 0, 
+    gsap.to('.hero-image', { 
+        scale: 1, 
         opacity: 1, 
-        duration: 0.8, 
-        ease: "power3.out", 
-        delay: 0.4 
+        duration: 1.2, 
+        ease: "power2.out", 
+        delay: animDelay + 0.1 
     });
     
-    gsap.to('.dark-section', { 
-        y: 0, 
-        opacity: 1, 
-        duration: 0.8, 
-        ease: "power3.out", 
-        delay: 0.5 
-    });
-    
-    gsap.to('.filter-item', {
+    gsap.to('.hero-title', {
         y: 0,
         opacity: 1,
-        duration: 0.6,
-        stagger: 0.1,
+        duration: animDuration,
         ease: "power3.out",
-        delay: 0.6
+        delay: animDelay + 0.4
     });
     
-    gsap.to('.case-card', {
+    gsap.to('.hero-description', {
+        y: 0,
+        opacity: 0.8,
+        duration: animDuration,
+        ease: "power3.out",
+        delay: animDelay + 0.5
+    });
+    
+    gsap.to('.dark-section', {
         y: 0,
         opacity: 1,
-        duration: 0.8,
-        stagger: 0.1,
+        duration: animDuration,
         ease: "power3.out",
-        delay: 0.9
+        delay: animDelay + 0.7
+    });
+    
+    gsap.to('.section-title', {
+        y: 0,
+        opacity: 1,
+        duration: animDuration,
+        ease: "power3.out",
+        delay: animDelay + 0.8
+    });
+    
+    gsap.to('.text-paragraph', {
+        y: 0,
+        opacity: 1,
+        duration: animDuration,
+        stagger: 0.15,
+        ease: "power3.out",
+        delay: animDelay + 0.9
+    });
+    
+    gsap.to('.carousel-container', {
+        y: 0,
+        opacity: 1,
+        duration: animDuration,
+        ease: "power3.out",
+        delay: animDelay + 1.1
+    });
+    
+    gsap.to('.site-link', {
+        y: 0,
+        opacity: 1,
+        duration: animDuration,
+        ease: "power3.out",
+        delay: animDelay + 1.2
+    });
+    
+    gsap.to('.red-line', {
+        scaleX: 1,
+        opacity: 1,
+        duration: animDuration,
+        ease: "power3.out",
+        delay: animDelay + 1.3
+    });
+    
+    gsap.to('.social-section', {
+        y: 0,
+        opacity: 1,
+        duration: animDuration,
+        ease: "power3.out",
+        delay: animDelay + 1.4
+    });
+    
+    gsap.to('.similar-articles-section', {
+        y: 0,
+        opacity: 1,
+        duration: animDuration,
+        ease: "power3.out",
+        delay: animDelay + 1.5
     });
     
     gsap.to('.footer', {
         y: 0,
         opacity: 1,
-        duration: 0.8,
+        duration: animDuration,
         ease: "power3.out",
-        delay: 1.4
+        delay: animDelay + 1.6
     });
     
-    
-    function filterCards(category) {
-        caseCards.forEach(card => {
-            const cardCategory = card.getAttribute('data-category');
-            
-            if (category === 'all' || cardCategory === category) {
-                card.classList.remove('hidden');
-                gsap.fromTo(card, 
-                    { opacity: 0, scale: 0.95 },
-                    { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" }
-                );
-            } else {
-                gsap.to(card, {
-                    opacity: 0,
-                    scale: 0.95,
-                    duration: 0.2,
-                    ease: "power2.in",
-                    onComplete: () => {
-                        card.classList.add('hidden');
-                    }
-                });
-            }
-        });
-    }
-    
-    filterItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            const filter = this.getAttribute('data-filter');
-            
-            filterItems.forEach(fi => fi.classList.remove('active'));
-            
-            this.classList.add('active');
-            
-            gsap.timeline()
-                .to(this, { scale: 0.95, duration: 0.1, ease: "sine.inOut" })
-                .to(this, { scale: 1, duration: 0.2, ease: "back.out(1.2)" });
-            
-            filterCards(filter);
-        });
-        
-        item.addEventListener('mouseenter', function() {
-            if (!this.classList.contains('active')) {
-                gsap.to(this.querySelector('.filter-text'), {
-                    color: '#E3032E',
-                    duration: 0.2,
-                    ease: "power2.out"
-                });
-                
-                gsap.to(this.querySelector('.filter-count'), {
-                    color: '#E3032E',
-                    duration: 0.2,
-                    ease: "power2.out"
-                });
-            }
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            if (!this.classList.contains('active')) {
-                gsap.to(this.querySelector('.filter-text'), {
-                    color: '#F0F0F0',
-                    duration: 0.2,
-                    ease: "power2.inOut"
-                });
-                
-                gsap.to(this.querySelector('.filter-count'), {
-                    color: 'rgba(240, 240, 240, 0.5)',
-                    duration: 0.2,
-                    ease: "power2.inOut"
-                });
-            }
-        });
-    });
-    
+    // Бургер-меню
     if (burgerMenu) {
         burgerMenu.addEventListener('click', function() {
-            console.log('Бургер-меню нажато - переход в меню');
-            
             gsap.timeline()
                 .to(this, { scale: 0.9, duration: 0.1, ease: "sine.inOut" })
                 .to(this, { scale: 1, duration: 0.2, ease: "back.out(1.2)" })
@@ -164,22 +161,114 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         burgerMenu.addEventListener('mouseenter', function() {
-            gsap.to(this, { scale: 1.1, duration: 0.2, ease: "power2.out" });
+            if (!isMobile()) {
+                gsap.to(this, { scale: 1.1, duration: 0.2, ease: "power2.out" });
+            }
         });
         
         burgerMenu.addEventListener('mouseleave', function() {
-            gsap.to(this, { scale: 1, duration: 0.2, ease: "power2.inOut" });
+            if (!isMobile()) {
+                gsap.to(this, { scale: 1, duration: 0.2, ease: "power2.inOut" });
+            }
         });
     }
     
-    footerLinks.forEach(link => {
+    // Социальные иконки
+    socialIcons.forEach(icon => {
+        icon.addEventListener('mouseenter', function() {
+            if (!isMobile()) {
+                gsap.to(this, { scale: 1.1, duration: 0.2, ease: "power2.out" });
+            }
+        });
+        
+        icon.addEventListener('mouseleave', function() {
+            if (!isMobile()) {
+                gsap.to(this, { scale: 1, duration: 0.2, ease: "power2.inOut" });
+            }
+        });
+    });
+    
+    // Drag-to-scroll для карусели
+    function initDragScroll(selector) {
+        const container = document.querySelector(selector);
+        if (!container) return;
+        
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        
+        container.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+            container.style.cursor = 'grabbing';
+            container.style.userSelect = 'none';
+        });
+        
+        container.addEventListener('mouseleave', () => {
+            isDown = false;
+            container.style.cursor = 'grab';
+            container.style.userSelect = 'auto';
+        });
+        
+        container.addEventListener('mouseup', () => {
+            isDown = false;
+            container.style.cursor = 'grab';
+            container.style.userSelect = 'auto';
+        });
+        
+        container.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - container.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            container.scrollLeft = scrollLeft - walk;
+        });
+        
+        container.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+        });
+        
+        container.style.cursor = 'grab';
+    }
+    
+    setTimeout(() => {
+        initDragScroll('.carousel-container');
+        initDragScroll('.similar-articles-container');
+    }, 500);
+    
+    // Hover-эффекты для похожих статей
+    similarArticleLinks.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            const img = this.querySelector('.similar-article-img');
+            if (img) {
+                gsap.to(img, {
+                    scale: 1.08,
+                    duration: 0.4,
+                    ease: "power2.out"
+                });
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            const img = this.querySelector('.similar-article-img');
+            if (img) {
+                gsap.to(img, {
+                    scale: 1,
+                    duration: 0.3,
+                    ease: "power2.inOut"
+                });
+            }
+        });
+    });
+    
+    // Футер ссылки
+    footerNavLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const href = this.getAttribute('href');
             
             if (href && href !== '#') {
-                console.log('Переход по ссылке:', href);
-                
                 gsap.timeline()
                     .to(this, { scale: 0.95, duration: 0.1, ease: "sine.inOut" })
                     .to(this, { scale: 1, duration: 0.2, ease: "back.out(1.2)" })
@@ -194,10 +283,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    if (policyLink) {
-        policyLink.addEventListener('click', function(e) {
+    // Политика конфиденциальности
+    if (footerPolicy) {
+        footerPolicy.addEventListener('click', function(e) {
             e.preventDefault();
-            console.log('Политика конфиденциальности');
             
             gsap.timeline()
                 .to(this, { scale: 0.95, duration: 0.1, ease: "sine.inOut" })
@@ -207,80 +296,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    caseCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            if (this.classList.contains('hidden')) return;
-            
-            const label = this.querySelector('.case-label');
-            gsap.to(label, {
-                color: '#E3032E',
-                duration: 0.2,
-                ease: "power2.out"
-            });
-            
-            const image = this.querySelector('.case-image');
-            gsap.to(image, {
-                boxShadow: '0 20px 30px rgba(0, 0, 0, 0.4)',
-                duration: 0.3,
-                ease: "power2.out"
-            });
-            
-            const img = this.querySelector('.case-img');
-            gsap.to(img, {
-                scale: 1.08,
-                duration: 0.4,
-                ease: "power2.out"
-            });
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            if (this.classList.contains('hidden')) return;
-            
-            const label = this.querySelector('.case-label');
-            gsap.to(label, {
-                color: '#F0F0F0',
-                duration: 0.2,
-                ease: "power2.inOut"
-            });
-            
-            const image = this.querySelector('.case-image');
-            gsap.to(image, {
-                boxShadow: 'none',
-                duration: 0.2,
-                ease: "power2.inOut"
-            });
-            
-            const img = this.querySelector('.case-img');
-            gsap.to(img, {
-                scale: 1,
-                duration: 0.3,
-                ease: "power2.inOut"
-            });
-        });
-        
-        card.addEventListener('click', function() {
-            if (this.classList.contains('hidden')) return;
-            
-            console.log('Клик по карточке кейса');
-            
-            const isFirstCard = this === caseCards[0];
-            
-            if (isFirstCard) {
-                gsap.timeline()
-                    .to(this, { scale: 0.95, duration: 0.1, ease: "sine.inOut" })
-                    .to(this, { scale: 1, duration: 0.2, ease: "back.out(1.2)" })
-                    .to({}, { duration: 0.2 })
-                    .to({}, {
-                        duration: 0.2,
-                        onComplete: () => {
-                            window.location.href = 'event_index.html';
-                        }
-                    });
-            } else {
-                gsap.timeline()
-                    .to(this, { scale: 0.98, duration: 0.1, ease: "sine.inOut" })
-                    .to(this, { scale: 1, duration: 0.3, ease: "elastic.out(1, 0.2)" });
-            }
-        });
+    // Слушаем изменение размера окна
+    window.addEventListener('resize', function() {
+        // Ничего не делаем, просто обеспечиваем адаптивность через CSS
     });
 });
