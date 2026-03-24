@@ -28,40 +28,39 @@
             </div>
         </header>
         
-        <div class="media-image-container">
-            <img src="imgs/media.png" alt="Media" class="media-image">
-        </div>
-        
-        <div class="dark-section">
-            
-            <div class="filter-menu">
-                <div class="filter-item active" data-filter="all">
-                    <span class="filter-text">Все</span>
-                    <span class="filter-count">12</span>
-                </div>
-                
-                <div class="filter-item" data-filter="event">
-                    <span class="filter-text">Мероприятия</span>
-                    <span class="filter-count">4</span>
-                </div>
-                
-                <div class="filter-item" data-filter="research">
-                    <span class="filter-text">Исследования</span>
-                    <span class="filter-count">4</span>
-                </div>
-                
-                <div class="filter-item" data-filter="mechanic">
-                    <span class="filter-text">Механики</span>
-                    <span class="filter-count">4</span>
-                </div>
+        <section class="media-hero-section">
+            <div class="media-image-container">
+                <img src="imgs/media.png" alt="Media" class="media-image">
             </div>
-            
-            <!-- Мобильные секции (скрыты на десктопе) -->
-            <div class="mobile-only">
-                <!-- Секция 1: Участие в мероприятиях -->
-                <h2 class="section-title">Участие в мероприятиях</h2>
+        </section>
+        
+        <section class="dark-section">
+            <div class="dark-container">
+                <div class="filter-menu">
+                    <div class="filter-item active" data-filter="all">
+                        <span class="filter-text">Все</span>
+                        <span class="filter-count">12</span>
+                    </div>
+                    
+                    <div class="filter-item" data-filter="event">
+                        <span class="filter-text">Мероприятия</span>
+                        <span class="filter-count">4</span>
+                    </div>
+                    
+                    <div class="filter-item" data-filter="research">
+                        <span class="filter-text">Исследования</span>
+                        <span class="filter-count">4</span>
+                    </div>
+                    
+                    <div class="filter-item" data-filter="mechanic">
+                        <span class="filter-text">Механики</span>
+                        <span class="filter-count">4</span>
+                    </div>
+                </div>
                 
-                <div class="cases-grid mobile-grid">
+                <!-- Десктопная сетка (все карточки) -->
+                <div class="cases-grid cases-grid-desktop" id="casesGridDesktop">
+                    <!-- Мероприятия -->
                     <div class="case-card card-type-large" data-category="event">
                         <div class="case-image image-large">
                             <img src="imgs/checker.png" alt="Медиа 1" class="case-img">
@@ -86,8 +85,8 @@
                         </div>
                     </div>
                     
-                    <div class="case-card card-type-large" data-category="event">
-                        <div class="case-image image-large">
+                    <div class="case-card card-type-small" data-category="event">
+                        <div class="case-image image-small">
                             <img src="imgs/checker.png" alt="Медиа 3" class="case-img">
                         </div>
                         <div class="case-content">
@@ -97,16 +96,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <button class="show-more-btn">Показать ещё</button>
-                
-                <!-- Секция 2: Исследование аудитории -->
-                <h2 class="section-title">Исследование аудитории</h2>
-                
-                <div class="cases-grid mobile-grid">
-                    <div class="case-card card-type-large" data-category="research">
-                        <div class="case-image image-large">
+                    
+                    <div class="case-card card-type-small" data-category="event">
+                        <div class="case-image image-small">
                             <img src="imgs/checker.png" alt="Медиа 4" class="case-img">
                         </div>
                         <div class="case-content">
@@ -117,8 +109,9 @@
                         </div>
                     </div>
                     
-                    <div class="case-card card-type-large" data-category="research">
-                        <div class="case-image image-large">
+                    <!-- Исследования -->
+                    <div class="case-card card-type-small" data-category="research">
+                        <div class="case-image image-small">
                             <img src="imgs/checker.png" alt="Медиа 5" class="case-img">
                         </div>
                         <div class="case-content">
@@ -140,15 +133,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <button class="show-more-btn">Показать ещё</button>
-                
-                <!-- Секция 3: Механики -->
-                <h2 class="section-title">Механики</h2>
-                
-                <div class="cases-grid mobile-grid">
-                    <div class="case-card card-type-large" data-category="mechanic">
+                    
+                    <div class="case-card card-type-large" data-category="research">
                         <div class="case-image image-large">
                             <img src="imgs/checker.png" alt="Медиа 7" class="case-img">
                         </div>
@@ -160,9 +146,34 @@
                         </div>
                     </div>
                     
-                    <div class="case-card card-type-large" data-category="mechanic">
-                        <div class="case-image image-large">
+                    <div class="case-card card-type-small" data-category="research">
+                        <div class="case-image image-small">
                             <img src="imgs/checker.png" alt="Медиа 8" class="case-img">
+                        </div>
+                        <div class="case-content">
+                            <div class="case-label">Самолет</div>
+                            <div class="case-description">
+                                Описание проекта Описание проекта Описание проекта Описание проекта Описание проекта Описание проекта Описание...<span>Подробнее</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Механики -->
+                    <div class="case-card card-type-small" data-category="mechanic">
+                        <div class="case-image image-small">
+                            <img src="imgs/checker.png" alt="Медиа 9" class="case-img">
+                        </div>
+                        <div class="case-content">
+                            <div class="case-label">Самолет</div>
+                            <div class="case-description">
+                                Описание проекта Описание проекта Описание проекта Описание проекта Описание проекта Описание проекта Описание...<span>Подробнее</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="case-card card-type-small" data-category="mechanic">
+                        <div class="case-image image-small">
+                            <img src="imgs/checker.png" alt="Медиа 10" class="case-img">
                         </div>
                         <div class="case-content">
                             <div class="case-label">Самолет</div>
@@ -174,7 +185,19 @@
                     
                     <div class="case-card card-type-large" data-category="mechanic">
                         <div class="case-image image-large">
-                            <img src="imgs/checker.png" alt="Медиа 9" class="case-img">
+                            <img src="imgs/checker.png" alt="Медиа 11" class="case-img">
+                        </div>
+                        <div class="case-content">
+                            <div class="case-label">Самолет</div>
+                            <div class="case-description">
+                                Описание проекта Описание проекта Описание проекта Описание проекта Описание проекта Описание проекта Описание...<span>Подробнее</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="case-card card-type-small" data-category="mechanic">
+                        <div class="case-image image-small">
+                            <img src="imgs/checker.png" alt="Медиа 12" class="case-img">
                         </div>
                         <div class="case-content">
                             <div class="case-label">Самолет</div>
@@ -185,102 +208,141 @@
                     </div>
                 </div>
                 
-                <button class="show-more-btn">Показать ещё</button>
+                <!-- Мобильная структура: 3 секции с кнопками -->
+                <div class="mobile-cases">
+                    <!-- Секция 1: Мероприятия -->
+                    <div class="mobile-section">
+                        <h2 class="mobile-section-title">Мероприятия</h2>
+                        <div class="mobile-cards-grid" data-category="event">
+                            <div class="case-card-mobile" data-category="event">
+                                <div class="case-image-mobile">
+                                    <img src="imgs/checker.png" alt="Медиа 1" class="case-img-mobile">
+                                </div>
+                                <div class="case-content-mobile">
+                                    <div class="case-label-mobile">Самолет</div>
+                                    <div class="case-description-mobile">
+                                        Описание проекта Описание проекта Описание проекта...<span>Подробнее</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="case-card-mobile" data-category="event">
+                                <div class="case-image-mobile">
+                                    <img src="imgs/checker.png" alt="Медиа 2" class="case-img-mobile">
+                                </div>
+                                <div class="case-content-mobile">
+                                    <div class="case-label-mobile">Самолет</div>
+                                    <div class="case-description-mobile">
+                                        Описание проекта Описание проекта Описание проекта...<span>Подробнее</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="case-card-mobile" data-category="event">
+                                <div class="case-image-mobile">
+                                    <img src="imgs/checker.png" alt="Медиа 3" class="case-img-mobile">
+                                </div>
+                                <div class="case-content-mobile">
+                                    <div class="case-label-mobile">Самолет</div>
+                                    <div class="case-description-mobile">
+                                        Описание проекта Описание проекта Описание проекта...<span>Подробнее</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="mobile-show-more-btn" data-category="event">Показать ещё</button>
+                    </div>
+                    
+                    <!-- Секция 2: Исследования -->
+                    <div class="mobile-section">
+                        <h2 class="mobile-section-title">Исследования</h2>
+                        <div class="mobile-cards-grid" data-category="research">
+                            <div class="case-card-mobile" data-category="research">
+                                <div class="case-image-mobile">
+                                    <img src="imgs/checker.png" alt="Медиа 4" class="case-img-mobile">
+                                </div>
+                                <div class="case-content-mobile">
+                                    <div class="case-label-mobile">Самолет</div>
+                                    <div class="case-description-mobile">
+                                        Описание проекта Описание проекта Описание проекта...<span>Подробнее</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="case-card-mobile" data-category="research">
+                                <div class="case-image-mobile">
+                                    <img src="imgs/checker.png" alt="Медиа 5" class="case-img-mobile">
+                                </div>
+                                <div class="case-content-mobile">
+                                    <div class="case-label-mobile">Самолет</div>
+                                    <div class="case-description-mobile">
+                                        Описание проекта Описание проекта Описание проекта...<span>Подробнее</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="case-card-mobile" data-category="research">
+                                <div class="case-image-mobile">
+                                    <img src="imgs/checker.png" alt="Медиа 6" class="case-img-mobile">
+                                </div>
+                                <div class="case-content-mobile">
+                                    <div class="case-label-mobile">Самолет</div>
+                                    <div class="case-description-mobile">
+                                        Описание проекта Описание проекта Описание проекта...<span>Подробнее</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="mobile-show-more-btn" data-category="research">Показать ещё</button>
+                    </div>
+                    
+                    <!-- Секция 3: Механики -->
+                    <div class="mobile-section">
+                        <h2 class="mobile-section-title">Механики</h2>
+                        <div class="mobile-cards-grid" data-category="mechanic">
+                            <div class="case-card-mobile" data-category="mechanic">
+                                <div class="case-image-mobile">
+                                    <img src="imgs/checker.png" alt="Медиа 7" class="case-img-mobile">
+                                </div>
+                                <div class="case-content-mobile">
+                                    <div class="case-label-mobile">Самолет</div>
+                                    <div class="case-description-mobile">
+                                        Описание проекта Описание проекта Описание проекта...<span>Подробнее</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="case-card-mobile" data-category="mechanic">
+                                <div class="case-image-mobile">
+                                    <img src="imgs/checker.png" alt="Медиа 8" class="case-img-mobile">
+                                </div>
+                                <div class="case-content-mobile">
+                                    <div class="case-label-mobile">Самолет</div>
+                                    <div class="case-description-mobile">
+                                        Описание проекта Описание проекта Описание проекта...<span>Подробнее</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="case-card-mobile" data-category="mechanic">
+                                <div class="case-image-mobile">
+                                    <img src="imgs/checker.png" alt="Медиа 9" class="case-img-mobile">
+                                </div>
+                                <div class="case-content-mobile">
+                                    <div class="case-label-mobile">Самолет</div>
+                                    <div class="case-description-mobile">
+                                        Описание проекта Описание проекта Описание проекта...<span>Подробнее</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="mobile-show-more-btn" data-category="mechanic">Показать ещё</button>
+                    </div>
+                </div>
             </div>
-            
-            <!-- Десктопная сетка со всеми 12 карточками -->
-            <div class="cases-grid cases-grid-desktop">
-                <!-- Мероприятия -->
-                <div class="case-card card-type-large" data-category="event">
-                    <div class="case-image image-large">
-                        <img src="imgs/checker.png" alt="Медиа 1" class="case-img">
-                    </div>
-                    <div class="case-label">Самолет</div>
-                </div>
-                
-                <div class="case-card card-type-large" data-category="event">
-                    <div class="case-image image-large">
-                        <img src="imgs/checker.png" alt="Медиа 2" class="case-img">
-                    </div>
-                    <div class="case-label">Самолет</div>
-                </div>
-                
-                <div class="case-card card-type-small" data-category="event">
-                    <div class="case-image image-small">
-                        <img src="imgs/checker.png" alt="Медиа 3" class="case-img">
-                    </div>
-                    <div class="case-label">Самолет</div>
-                </div>
-                
-                <div class="case-card card-type-small" data-category="event">
-                    <div class="case-image image-small">
-                        <img src="imgs/checker.png" alt="Медиа 4" class="case-img">
-                    </div>
-                    <div class="case-label">Самолет</div>
-                </div>
-                
-                <!-- Исследования -->
-                <div class="case-card card-type-small" data-category="research">
-                    <div class="case-image image-small">
-                        <img src="imgs/checker.png" alt="Медиа 5" class="case-img">
-                    </div>
-                    <div class="case-label">Самолет</div>
-                </div>
-                
-                <div class="case-card card-type-large" data-category="research">
-                    <div class="case-image image-large">
-                        <img src="imgs/checker.png" alt="Медиа 6" class="case-img">
-                    </div>
-                    <div class="case-label">Самолет</div>
-                </div>
-                
-                <div class="case-card card-type-large" data-category="research">
-                    <div class="case-image image-large">
-                        <img src="imgs/checker.png" alt="Медиа 7" class="case-img">
-                    </div>
-                    <div class="case-label">Самолет</div>
-                </div>
-                
-                <div class="case-card card-type-medium" data-category="research">
-                    <div class="case-image image-small">
-                        <img src="imgs/checker.png" alt="Медиа 8" class="case-img">
-                    </div>
-                    <div class="case-label">Самолет</div>
-                </div>
-                
-                <!-- Механики -->
-                <div class="case-card card-type-small" data-category="mechanic">
-                    <div class="case-image image-small">
-                        <img src="imgs/checker.png" alt="Медиа 9" class="case-img">
-                    </div>
-                    <div class="case-label">Самолет</div>
-                </div>
-                
-                <div class="case-card card-type-small" data-category="mechanic">
-                    <div class="case-image image-small">
-                        <img src="imgs/checker.png" alt="Медиа 10" class="case-img">
-                    </div>
-                    <div class="case-label">Самолет</div>
-                </div>
-                
-                <div class="case-card card-type-large" data-category="mechanic">
-                    <div class="case-image image-large">
-                        <img src="imgs/checker.png" alt="Медиа 11" class="case-img">
-                    </div>
-                    <div class="case-label">Самолет</div>
-                </div>
-                
-                <div class="case-card card-type-small" data-category="mechanic">
-                    <div class="case-image image-small">
-                        <img src="imgs/checker.png" alt="Медиа 12" class="case-img">
-                    </div>
-                    <div class="case-label">Самолет</div>
-                </div>
-            </div>
-            
-        </div>
+        </section>
         
-        <div class="media-section">
+        <section class="media-section">
             <div class="media-title">Медиа</div>
             
             <div class="media-container" id="mediaContainer">
@@ -406,7 +468,7 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </section>
         
         <footer class="footer">
             <div class="footer-content">
