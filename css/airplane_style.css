@@ -457,296 +457,13 @@ body {
     overflow: visible;
 }
 
-.white-overlay {
-    max-width: 1260px;
+.snake-image {
     width: 100%;
-    background-color: #FFFFFF;
-    border-radius: 40px;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    overflow: visible;
-    position: relative;
-}
-
-.snake-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    position: relative;
-}
-
-.snake-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    width: 100%;
-    position: relative;
-}
-
-.snake-item {
-    flex: 0 1 auto;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-family: "Manrope", sans-serif;
-    font-size: 14px;
-    line-height: 1.3;
-    font-weight: 400;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.snake-item.hollow {
-    border: 1px solid #007CFB;
-    background-color: transparent;
-    color: #333333;
-}
-
-.snake-item.blue {
-    background-color: #007CFB;
-    color: #FFFFFF;
-    border: none;
-}
-
-.snake-1 {
-    transform: translate(-50px, 120px);
-    padding: 1px 24px;
-    flex-basis: 180px;
-    background-color: #f0f0f0;
-    border: 1px solid #007CFB;
-}
-
-.snake-2 {
-    transform: translate(-40px, 120px);
-    padding: 1px 24px;
-    flex-basis: 160px;
-    background-color: #007CFB;
-    color: #FFFFFF;
-    border: none;
-}
-
-.snake-3 {
-    transform: translate(-10px, 120px);
-    padding: 1px 24px;
-    flex-basis: 200px;
-    border: 1px solid #007CFB;
-    background-color: transparent;
-    color: #333333;
-}
-
-.snake-4 {
-    transform: translate(-10px, 120px);
-    padding: 1px 24px;
-    flex-basis: 220px;
-    border: 1px solid #007CFB;
-    background-color: transparent;
-    color: #333333;
-}
-
-.snake-5 {
-    transform: translate(100px, 140px);
-    padding: 1px 24px;
-    flex-basis: 220px;
-    background-color: #007CFB;
-    color: #FFFFFF;
-    border: none;
-}
-
-.snake-6 {
-    transform: translate(130px, 140px);
-    padding: 1px 24px;
-    flex-basis: 220px;
-    border: 1px solid #007CFB;
-    background-color: transparent;
-    color: #333333;
-}
-
-.snake-7 {
-    transform: translate(130px, 140px);
-    padding: 1px 24px;
-    flex-basis: 220px;
-    border: 1px solid #007CFB;
-    background-color: transparent;
-    color: #333333;
-}
-
-.snake-8 {
-    transform: translate(120px, 160px);
-    padding: 1px 24px;
-    flex-basis: 220px;
-    background-color: #007CFB;
-    color: #FFFFFF;
-    border: none;
-}
-
-.snake-9 {
-    transform: translate(150px, 160px);
-    padding: 1px 24px;
-    flex-basis: 220px;
-    border: 1px solid #007CFB;
-    background-color: transparent;
-    color: #333333;
-}
-
-.snake-10 {
-    transform: translate(150px, 160px);
-    padding: 1px 24px;
-    flex-basis: 220px;
-    border: 1px solid #007CFB;
-    background-color: transparent;
-    color: #333333;
-}
-
-.snake-11 {
-    transform: translate(140px, 180px);
-    padding: 1px 24px;
-    flex-basis: 220px;
-    background-color: #007CFB;
-    color: #FFFFFF;
-    border: none;
-}
-
-.snake-12 {
-    transform: translate(170px, 180px);
-    padding: 12px 24px;
-    flex-basis: 220px;
-    border: 1px solid #007CFB;
-    background-color: transparent;
-    color: #333333;
-}
-
-.snake-13 {
-    transform: translate(170px, 180px);
-    padding: 1px 24px;
-    flex-basis: 220px;
-    border: 1px solid #007CFB;
-    background-color: transparent;
-    color: #333333;
-}
-
-.snake-14 {
-    transform: translate(-140px, 280px);
-    padding: 12px 24px;
-    flex-basis: 220px;
-    border: 1px solid #007CFB;
-    background-color: transparent;
-    color: #333333;
-}
-
-.white-photos {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    position: relative;
-}
-
-.white-photo {
-    width: auto;
+    max-width: 1360px;
     height: auto;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-    position: relative;
-}
-
-.white-photo.photo-1 {
-    max-width: 60px;
-    transform: translate(240px, -340px);
-}
-
-.white-photo.photo-2 {
-    max-width: 60px;
-    transform: translate(220px, -240px);
-}
-
-.white-photo.photo-3 { 
-    max-width: 60px;
-    transform: translate(160px, -140px);
-}
-
-.white-photo.photo-4 { 
-    max-width: 60px;
-    transform: translate(100px, -50px);
-}
-
-.white-photo.photo-5 { 
-    max-width: 400px;
-    transform: translate(20px, 200px);
-}
-
-.text-elements {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
-    margin: 20px 0;
-}
-
-.cjm-title {
-    font-family: "Inter Tight", sans-serif;
-    font-weight: 500;
-    font-size: 40px;
-    line-height: 110%;
-    color: #007AFF;
-    white-space: nowrap;
-    transform: translate(130px, -390px);
-}
-
-.advantages-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    transform: translate(-640px, 60px);
-}
-
-.advantage-item {
-    font-family: "Inter", sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 110%;
-    color: #333333;
-    position: relative;
-    padding-left: 20px;
-}
-
-.advantage-item::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #000000;
-    font-size: 18px;
-}
-
-.banner-rectangle {
-    background-color: #005FC2;
-    border-radius: 100px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 20px 30px;
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-    box-shadow: 0 4px 10px rgba(0, 95, 194, 0.3);
-    transform: translate(-650px, -590px);
-}
-
-.banner-text {
-    font-family: "Inter", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    color: #FFFFFF;
-    text-align: right;
-    letter-spacing: 0.5px;
+    display: block;
+    margin: 0 auto 0 -20px;
+    border-radius: 40px;
 }
 
 .audience-block {
@@ -837,45 +554,6 @@ body {
     transform: scale(1.02);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
-
-.white-zone-image.landscape {
-    aspect-ratio: 805 / 453;
-}
-
-.white-zone-image.square {
-    aspect-ratio: 1 / 1;
-}
-
-.white-zone-image.portrait {
-    aspect-ratio: 453 / 604;
-}
-
-.white-zone-image.wide {
-    grid-column: span 2;
-}
-
-.white-zone-image.tall {
-    grid-row: span 2;
-    aspect-ratio: 453 / 906;
-}
-
-.white-zone-image.large {
-    grid-column: span 2;
-    grid-row: span 2;
-    aspect-ratio: 1610 / 906;
-}
-
-.white-zone-image.order-1 { order: 1; }
-.white-zone-image.order-2 { order: 2; }
-.white-zone-image.order-3 { order: 3; }
-.white-zone-image.order-4 { order: 4; }
-.white-zone-image.order-5 { order: 5; }
-.white-zone-image.order-6 { order: 6; }
-
-.white-zone-image.mt-20 { margin-top: 20px; }
-.white-zone-image.mb-20 { margin-bottom: 20px; }
-.white-zone-image.ml-20 { margin-left: 20px; }
-.white-zone-image.mr-20 { margin-right: 20px; }
 
 .next-case-section {
     max-width: 1280px;
@@ -1265,36 +943,42 @@ body {
     color: #E3032E;
 }
 
+@media screen and (min-width: 1441px) {
+    .main-container {
+        max-width: 1440px;
+    }
+    
+}
+
 @media screen and (max-width: 1440px) {
     .main-container {
         max-width: 1200px;
     }
     
-    .header {
+    .header, .text-block, .next-case-section, .team-title, .similar-cases-title, .footer {
         max-width: 1100px;
     }
-    
-    .text-block {
-        max-width: 1100px;
+
+    .about-project, .idea-block, .mechanics-block, .audience-block {
+        max-width: 800px;
     }
-    
+
     .white-zone-container {
         max-width: 1100px;
     }
-    
-    .next-case-section {
-        max-width: 1100px;
+
+    .case-title {
+        font-size: 52px;
+        margin-top: -100px;
     }
     
-    .team-title,
-    .team-container,
-    .similar-cases-title,
-    .similar-cases-container {
-        max-width: 1100px;
+    .site-link-container {
+        margin-top: -100px;
+        left: 60px;
     }
-    
-    .footer {
-        max-width: 1100px;
+
+    .footer-logo {
+        max-width: 65%;
     }
 }
 
@@ -1303,83 +987,50 @@ body {
         max-width: 992px;
     }
     
-    .header {
+    .header, .text-block, .next-case-section, .team-title, .similar-cases-title, .footer {
         max-width: 900px;
     }
-    
+
     .case-title {
         font-size: 52px;
+        margin-top: -100px;
     }
-    
+
     .case-description {
         font-size: 24px;
     }
-    
-    .text-block {
-        max-width: 900px;
-        flex-wrap: wrap;
-    }
-    
+
     .first-column {
-        flex: 1 1 100%;
-        max-width: 100%;
+        max-width: 400px;
     }
-    
-    .second-column,
-    .third-column {
-        width: auto;
-        flex: 1;
+
+    .about-project, .idea-block, .mechanics-block, .audience-block {
+        max-width: 700px;
     }
-    
+
     .white-zone-container {
         max-width: 900px;
     }
-    
-    .next-case-section {
-        max-width: 900px;
-    }
-    
-    .team-title,
-    .team-container,
-    .similar-cases-title,
-    .similar-cases-container {
-        max-width: 900px;
-    }
-    
-    .footer {
-        max-width: 900px;
-    }
-}
 
-@media screen and (max-width: 1024px) {
-    .white-overlay {
-        margin: 0 20px;
-        padding: 30px;
+    .background-image {
+        min-height: 700px;
+    }
+
+    .site-link-container {
+        top: 600px;
+        margin-top: -40px;
+    }
+
+    .marquee-image {
+        height: 300px;
+    }
+
+    .marquee-row-middle .marquee-image {
+        height: 350px;
     }
     
-    .snake-item {
-        min-width: 160px;
-        font-size: 13px;
-    }
-    
-    .text-elements {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .cjm-title {
-        white-space: normal;
-        text-align: center;
-    }
-    
-    .advantages-list {
-        align-items: center;
-    }
-    
-    .banner-rectangle {
-        max-width: 280px;
-        margin: 0 auto;
+    .footer-logo {
+        max-width: 60%;
     }
 }
 
@@ -1388,576 +1039,422 @@ body {
         max-width: 768px;
     }
     
-    .header {
+    .header, .next-case-section, .team-title, .similar-cases-title, .footer {
         max-width: 700px;
-        top: 20px;
+        margin-top: 20px;
     }
-    
+
     .case-on-image {
-        width: 90%;
-        max-width: 500px;
-        left: 5%;
-        top: 15%;
+        width: 80%;
     }
-    
+
     .case-title {
         font-size: 44px;
+        margin-top: -180px;
     }
-    
+
     .case-description {
         font-size: 20px;
     }
-    
-    .site-link-container {
-        top: auto;
-        bottom: 80px;
-        left: 5%;
+
+    .text-block {
+        flex-wrap: wrap;
     }
-    
+
+    .first-column {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .second-column, .third-column {
+        width: 48%;
+    }
+
+    .background-image {
+        min-height: 600px;
+    }
+
+    .site-link-container {
+        font-size: 52px;
+        margin-top: -180px;
+        left: 40px;
+    }
+
     .dark-section {
         padding: 60px 0 40px;
     }
-    
-    .text-block {
-        max-width: 700px;
-        margin-bottom: 60px;
+
+    .marquee-image {
+        height: 200px;
     }
-    
-    .text-title,
-    .info-title {
-        font-size: 28px;
-    }
-    
-    .about-project,
-    .idea-block,
-    .mechanics-block,
-    .audience-block {
-        margin-bottom: 60px;
-        padding: 0 20px;
-    }
-    
-    .about-title,
-    .idea-title,
-    .mechanics-title {
-        font-size: 28px;
-    }
-    
-    .about-text,
-    .idea-description,
-    .idea-subtitle,
-    .floor-title,
-    .floor-description,
-    .mechanics-text,
-    .audience-title,
-    .audience-item,
-    .audience-description {
-        font-size: 18px;
-    }
-    
-    .white-zone {
-        padding: 60px 0;
-    }
-    
-    .white-zone-container {
-        max-width: 700px;
-    }
-    
-    .bottom-site-link {
-        font-size: 48px;
-    }
-    
-    .team-title,
-    .similar-cases-title {
-        font-size: 28px;
-    }
-    
-    .team-item,
-    .similar-case-item {
-        width: 280px;
-    }
-    
-    .team-image,
-    .similar-case-image {
-        height: 320px;
-    }
-    
-    .footer {
-        max-width: 700px;
+
+    .marquee-row-middle .marquee-image {
+        height: 250px;
     }
     
     .footer-logo {
-        max-width: 70%;
+        max-width: 55%;
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 902px) and (min-width: 600px) {
+    body {
+        overflow-x: hidden;
+    }
+    
     .main-container {
         max-width: 100%;
+        overflow-x: hidden;
+        padding: 0;
     }
     
-    .header {
+    .header, .text-block, .about-project, .idea-block, .mechanics-block, .audience-block, .white-zone-container, .next-case-section, .team-title, .team-container, .similar-cases-title, .similar-cases-container, .footer {
         max-width: 100%;
-        padding: 0 24px;
-    }
-    
-    .logo {
-        width: 150px;
-        height: 35px;
+        padding-left: 24px;
+        padding-right: 24px;
     }
     
     .case-on-image {
-        top: 20%;
         left: 24px;
-    }
-    
-    .case-title {
-        font-size: 36px;
-    }
-    
-    .case-description {
-        font-size: 18px;
+        width: calc(100% - 48px);
     }
     
     .site-link-container {
-        left: 24px;
-        bottom: 60px;
+        font-size: 52px;
+        margin-top: 10px;
+        left: 25px;
     }
-    
-    .dark-section {
-        border-radius: 24px;
-    }
-    
+
     .text-block {
-        padding: 0 24px;
-    }
-    
-    .second-column,
-    .third-column {
-        width: 100%;
-    }
-    
-    .about-project,
-    .idea-block,
-    .mechanics-block,
-    .audience-block {
-        padding: 0 24px;
-    }
-    
-    .marquee-image {
-        height: 300px;
-    }
-    
-    .marquee-row-middle .marquee-image {
-        height: 380px;
-    }
-    
-    .marquee-row-bottom .marquee-image {
-        height: 320px;
-    }
-    
-    .white-overlay {
-        padding: 20px;
-        margin: 0 16px;
-    }
-    
-    .snake-item {
-        min-width: 140px;
-        font-size: 12px;
-    }
-    
-    .snake-1, .snake-2, .snake-3, .snake-4,
-    .snake-5, .snake-6, .snake-7, .snake-8,
-    .snake-9, .snake-10, .snake-11, .snake-12,
-    .snake-13, .snake-14 {
-        transform: translate(0, 0);
-        padding: 4px 16px;
-    }
-    
-    .white-photo.photo-1,
-    .white-photo.photo-2,
-    .white-photo.photo-3,
-    .white-photo.photo-4 {
-        max-width: 40px;
-        transform: translate(0, 0);
-    }
-    
-    .white-photo.photo-5 {
-        max-width: 200px;
-        transform: translate(0, 0);
-    }
-    
-    .cjm-title {
-        font-size: 28px;
-        transform: translate(0, 0);
-    }
-    
-    .advantages-list {
-        transform: translate(0, 0);
-    }
-    
-    .banner-rectangle {
-        max-width: 240px;
-        padding: 12px 20px;
-        transform: translate(0, 0);
-    }
-    
-    .banner-text {
-        font-size: 12px;
-    }
-    
-    .white-zone {
-        padding: 40px 0;
-    }
-    
-    .white-zone-container {
-        padding: 0 24px;
-    }
-    
-    .white-zone-row {
         flex-direction: column;
-        gap: 16px;
+        gap: 30px;
     }
-    
-    .bottom-site-link {
-        font-size: 36px;
+
+    .first-column, .second-column, .third-column {
+        width: 100%;
+        max-width: 100%;
     }
-    
-    .next-case-link {
-        font-size: 18px;
+
+    .second-column {
+        flex-direction: row;
+        gap: 20px;
+        flex-wrap: wrap;
     }
-    
-    .team-section,
-    .similar-cases-section {
-        padding: 40px 0;
-    }
-    
-    .team-title,
-    .similar-cases-title {
-        font-size: 24px;
-        padding: 0 24px;
-    }
-    
-    .team-container,
-    .similar-cases-container {
-        padding: 0 24px;
-    }
-    
-    .team-item,
-    .similar-case-item {
-        width: 260px;
-    }
-    
-    .team-image,
-    .similar-case-image {
-        height: 300px;
-    }
-    
-    .team-name,
-    .similar-case-name {
-        font-size: 18px;
-    }
-    
-    .team-role,
-    .similar-case-description {
-        font-size: 14px;
-    }
-    
+
     .footer {
-        padding: 40px 24px;
+        margin-top: 40px;
+        padding-bottom: 40px;
     }
     
     .footer-content {
         flex-direction: column;
         align-items: center;
-        text-align: center;
+        gap: 30px;
+    }
+    
+    .footer-logo {
+        max-width: 80%;
+        width: auto;
     }
     
     .footer-right {
+        height: auto;
         align-items: center;
+        gap: 20px;
     }
     
     .footer-nav {
         align-items: center;
-    }
-    
-    .footer-nav-link {
-        font-size: 18px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .header {
-        top: 24px;
-        padding: 0 24px;
-    }
-    
-    .logo {
-        width: 120px;
-        height: 28px;
-    }
-    
-    .case-on-image {
-        top: 25%;
-        left: 24px;
-        width: calc(100% - 48px);
         gap: 12px;
     }
     
-    .case-title {
-        font-size: 28px;
+    .footer-nav-link {
+        text-align: center;
+        font-size: 18px;
     }
     
+    .footer-policy {
+        text-align: center;
+        font-size: 14px;
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 600px) {
+    .case-title {
+        font-size: 38px;
+    }
+    
+    .case-description {
+        font-size: 18px;
+    }
+
+    .background-image {
+        min-height: 500px;
+    }
+    
+    .site-link-container {
+        top: 400px;
+    }
+}
+
+@media screen and (max-width: 600px) and (min-width: 481px) {
+    body {
+        overflow-x: hidden;
+    }
+    
+    .main-container {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .header, .text-block, .about-project, .idea-block, .mechanics-block, .audience-block, .white-zone-container, .next-case-section, .team-title, .team-container, .similar-cases-title, .similar-cases-container, .footer {
+        max-width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .logo {
+        width: auto;
+        height: 32px;
+    }
+    
+    .logo img {
+        height: 32px;
+        width: auto;
+    }
+    
+    .case-title {
+        font-size: 36px;
+    }
+
+    .background-image {
+        min-height: 450px;
+    }
+
+    .site-link-container {
+        top: 380px;
+        left: 20px;
+    }
+
+    .case-on-image {
+        left: 20px;
+    }
+
+    .second-column {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .white-zone-row {
+        flex-direction: column;
+    }
+
+    .team-item, .similar-case-item {
+        width: 260px;
+    }
+
+    .team-image, .similar-case-image {
+        height: 300px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .footer-logo {
+        max-width: 80%;
+        width: auto;
+    }
+    
+    .footer-right {
+        height: auto;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .footer-nav {
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .footer-nav-link {
+        text-align: center;
+        font-size: 18px;
+    }
+    
+    .footer-policy {
+        text-align: center;
+        font-size: 14px;
+        margin-top: 0;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    body {
+        overflow-x: hidden;
+    }
+    
+    .main-container {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .header, .text-block, .about-project, .idea-block, .mechanics-block, .audience-block, .white-zone-container, .next-case-section, .team-title, .team-container, .similar-cases-title, .similar-cases-container, .footer {
+        max-width: 100%;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    
+    .logo {
+        width: auto;
+        height: 24px;
+    }
+    
+    .logo img {
+        height: 24px;
+        width: auto;
+    }
+    
+    .case-on-image {
+        top: 80px;
+        left: 24px;
+        width: calc(100% - 48px);
+    }
+    
+    .case-title {
+        font-size: 32px;
+        margin-top: 20px
+    }
+
     .case-description {
         font-size: 16px;
     }
     
+    .background-image {
+        min-height: 400px;
+    }
+
     .site-link-container {
-        left: 24px;
-        bottom: 40px;
+        font-size: 52px;
+        margin-top: 90px;
+        left: 4px;
+    }
+
+    .dark-section {
+        border-radius: 24px 24px 0 0;
+        padding: 40px 0 30px;
+    }
+
+    .text-block {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .first-column, .second-column, .third-column {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .text-title, .info-title, .about-title, .idea-title, .mechanics-title {
+        font-size: 28px;
+    }
+
+    .text-description, .info-text, .service-item, .about-text, .idea-description, .idea-subtitle, .floor-description, .mechanics-text, .audience-description, .audience-item {
+        font-size: 16px;
+    }
+
+    .floor-title, .audience-title {
+        font-size: 18px;
+    }
+
+    .white-zone-row {
+        flex-direction: column;
+    }
+
+    .marquee-image {
+        height: 150px;
+    }
+
+    .marquee-row-middle .marquee-image {
+        height: 180px;
+    }
+
+    .bottom-site-link {
+        font-size: 32px;
+    }
+
+    .team-item, .similar-case-item {
+        width: 220px;
+    }
+
+    .team-image, .similar-case-image {
+        height: 260px;
+    }
+    
+    .footer-content {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 40px;
+    }
+    
+    .footer-logo {
+        max-width: 100%;
         width: auto;
     }
     
-    .site-link {
-        font-size: 18px;
+    .footer-right {
+        height: auto;
+        align-items: center;
+        gap: 16px;
     }
     
-    .dark-section {
-        padding: 40px 0;
+    .footer-nav {
+        align-items: center;
+        gap: 16px;
     }
     
-    .text-block {
-        margin-bottom: 40px;
-        padding: 0 16px;
-        gap: 30px;
+    .footer-nav-link {
+        text-align: center;
+        font-size: 20px;
     }
     
-    .text-title,
-    .info-title {
-        font-size: 24px;
-    }
-    
-    .text-description,
-    .info-text,
-    .service-item {
+    .footer-policy {
+        margin-top: 0;
+        text-align: center;
         font-size: 14px;
     }
-    
-    .about-project,
-    .idea-block,
-    .mechanics-block,
-    .audience-block {
-        margin-bottom: 40px;
-        padding: 0 16px;
-    }
-    
-    .about-title,
-    .idea-title,
-    .mechanics-title {
-        font-size: 24px;
-    }
-    
-    .about-text,
-    .idea-description,
-    .idea-subtitle,
-    .floor-title,
-    .floor-description,
-    .mechanics-text,
-    .audience-title,
-    .audience-item,
-    .audience-description {
-        font-size: 16px;
-    }
-    
-    .blue-section,
-    .blue-section-2 {
-        margin-bottom: 40px;
-    }
-    
-    .marquee-image {
-        height: 200px;
-    }
-    
-    .marquee-row-middle .marquee-image {
-        height: 250px;
-    }
-    
-    .marquee-row-bottom .marquee-image {
-        height: 210px;
-    }
-    
-    .white-overlay {
-        padding: 20px;
-        border-radius: 24px;
-        gap: 20px;
-    }
-    
-    .snake-container {
-        gap: 12px;
-    }
-    
-    .snake-row {
-        gap: 12px;
-    }
-    
-    .snake-item {
-        min-width: 120px;
-        padding: 4px 12px;
-        font-size: 11px;
-    }
-    
-    .white-photo {
-        max-width: 50px;
-    }
-    
-    .white-photo.photo-5 {
-        max-width: 150px;
-    }
-    
-    .cjm-title {
-        font-size: 24px;
-    }
-    
-    .advantage-item {
-        font-size: 12px;
-    }
-    
-    .banner-rectangle {
-        max-width: 200px;
-        padding: 10px 16px;
-    }
-    
-    .banner-text {
-        font-size: 11px;
-    }
-    
-    .white-zone {
-        margin-bottom: 40px;
-        padding: 40px 0;
-    }
-    
-    .white-zone-container {
-        padding: 0 16px;
-    }
-    
-    .bottom-site-link {
+}
+
+
+@media screen and (max-width: 375px) {
+    .case-title {
         font-size: 28px;
     }
-    
-    .next-case-link {
-        font-size: 16px;
-    }
-    
-    .team-section,
-    .similar-cases-section {
-        padding: 40px 0;
-    }
-    
-    .team-title,
-    .similar-cases-title {
+
+    .text-title, .info-title {
         font-size: 24px;
-        margin-bottom: 24px;
-        padding: 0 16px;
     }
-    
-    .team-container,
-    .similar-cases-container {
-        padding: 0 16px;
+
+    .background-image {
+        min-height: 350px;
     }
-    
-    .team-wrapper,
-    .similar-cases-wrapper {
-        gap: 20px;
-    }
-    
-    .team-item,
-    .similar-case-item {
-        width: 240px;
-    }
-    
-    .team-image,
-    .similar-case-image {
-        height: 280px;
-    }
-    
-    .team-name,
-    .similar-case-name {
-        font-size: 16px;
-    }
-    
-    .team-role,
-    .similar-case-description {
-        font-size: 12px;
-    }
-    
-    .footer {
-        padding: 40px 16px 30px;
+
+    .site-link-container {
+        top: 280px;
     }
     
     .footer-logo {
         max-width: 90%;
     }
-    
-    .footer-nav-link {
-        font-size: 16px;
-    }
-    
-    .footer-policy {
-        font-size: 12px;
-    }
 }
 
-@media screen and (max-width: 375px) {
-    .case-title {
-        font-size: 24px;
-    }
-    
-    .case-description {
-        font-size: 14px;
-    }
-    
-    .about-text,
-    .idea-description,
-    .idea-subtitle,
-    .floor-title,
-    .floor-description,
-    .mechanics-text,
-    .audience-title,
-    .audience-item,
-    .audience-description {
-        font-size: 14px;
-    }
-    
-    .team-item,
-    .similar-case-item {
-        width: 220px;
-    }
-    
-    .team-image,
-    .similar-case-image {
-        height: 260px;
-    }
-    
-    .bottom-site-link {
-        font-size: 24px;
-    }
-}
 
 @media screen and (max-width: 320px) {
-    .case-title {
-        font-size: 22px;
-    }
-    
-    .team-item,
-    .similar-case-item {
-        width: 200px;
-    }
-    
-    .team-image,
-    .similar-case-image {
-        height: 240px;
-    }
-    
-    .bottom-site-link {
-        font-size: 20px;
+    .footer-logo {
+        max-width: 100%;
     }
 }
